@@ -59,8 +59,8 @@ public class Xls {
 
     public void CriarPlanilha() {
         try {
-            CopiarArquivo.copiarArquivo(Constantes.path + "\\src\\composicoestcpplanilha\\Modelo\\Cabecalho.xls",
-                    Constantes.path + "\\" + nomePlan + ".xls");
+            CopiarArquivo.copiarArquivo(Constantes.PATH + "\\src\\composicoestcpplanilha\\Modelo\\Cabecalho.xls",
+                    Constantes.PATH + "\\" + nomePlan + ".xls");
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "O arquivo " + nomePlan + " está sendo usado em outro processo.\nEncerre o processo para prosseguir.");
             Logger.getLogger(Xls.class.getName()).log(Level.SEVERE, null, ex);
@@ -101,8 +101,8 @@ public class Xls {
             try {
                 WorkbookSettings conf = new WorkbookSettings();
                 conf.setEncoding("ISO-8859-1");
-                Workbook pastaExcel = Workbook.getWorkbook(new File(Constantes.path + "\\" + nomePlan + ".xls"), conf);
-                WritableWorkbook copia = Workbook.createWorkbook(new File(Constantes.path + "\\" + nomePlan + ".xls"), pastaExcel);
+                Workbook pastaExcel = Workbook.getWorkbook(new File(Constantes.PATH + "\\" + nomePlan + ".xls"), conf);
+                WritableWorkbook copia = Workbook.createWorkbook(new File(Constantes.PATH + "\\" + nomePlan + ".xls"), pastaExcel);
                 WritableSheet planilhaExcel = copia.getSheet(nomeAba);
 
                 Cell cellExcel1 = planilhaExcel.getCell(0, 5);

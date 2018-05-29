@@ -42,6 +42,12 @@ public class Principal {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        File miscPasta = new File(Constantes.miscPasta);
+
+        if (!miscPasta.exists()) {
+            miscPasta.mkdir();
+        }
+
         File file = new File(Constantes.MISC_HASH);
 
         if (!file.exists()) {

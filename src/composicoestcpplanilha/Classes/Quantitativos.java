@@ -49,8 +49,12 @@ public class Quantitativos {
     
     linhaDadosDestino = linhaDadosDestino + unid + ";" + unid + ";";
     
-    for(int i = 9; i< linhaDadosOrigem.length; i++){
+    for(int i = 9; i< 15; i++){
         linhaDadosDestino = linhaDadosDestino + linhaDadosOrigem[i] + ";";
+    }
+    
+    for(int i = 15; i< linhaDadosOrigem.length; i++){
+        linhaDadosDestino = linhaDadosDestino + linhaDadosOrigem[i].replace(",", ".") + ";";
     }
 
 // linhaDadosDestino = String.valueOf(lastID) + ".0" + servicos;
