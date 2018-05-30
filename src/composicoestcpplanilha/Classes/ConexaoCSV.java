@@ -198,7 +198,7 @@ public class ConexaoCSV {
 
                 dadosLinha = Str.split(";");
 
-                if (dadosLinha[3].contains(localizar)) {
+                if (dadosLinha[3].equals(localizar)) { // Alterado de contains para equals
                     arquivo.add(Str + ";");
                     teste = true;
                 }

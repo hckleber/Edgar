@@ -57,6 +57,8 @@ public class Xls {
         this.nomePlan = nomePlan;
     }
 
+//    "C:\\Users\\Milene\\Desktop\\Programa_Orcamento"
+    
     public void CriarPlanilha() {
         try {
             CopiarArquivo.copiarArquivo(Constantes.PATH + "\\src\\composicoestcpplanilha\\Modelo\\Cabecalho.xls",
@@ -95,6 +97,13 @@ public class Xls {
 //        formatCell = new WritableCellFormat(fonte);
         formatCell = new WritableCellFormat(fonte, new NumberFormat("0.00"));
         formatCell.setWrap(false);
+        int colunas = 0;
+        
+        if(nomeAba.equals("Composicoes")){
+            colunas = 24;
+        }else if(nomeAba.equals("Planilha_de_Precos")){
+            colunas = 23;
+        }
 
         String[] linha;
         {
@@ -135,7 +144,7 @@ public class Xls {
                             lbl = new Label(18, nRow + 9, "", formatCellBase2);
                             planilhaExcel.addCell(lbl);
                             nColumn++;
-                        } else if (nColumn < 25 && !conteudoLinha.equals("Produção horária da equipe:")) {
+                        } else if (nColumn < colunas && !conteudoLinha.equals("Produção horária da equipe:")) {
                             if(!conteudoLinha.isEmpty()){
                                 Number numero;
                                 numero = new Number(nColumn, nRow + 9, Float.parseFloat(conteudoLinha.replace(",", ".")), formatCell);
@@ -175,7 +184,7 @@ public class Xls {
                 for (int nRow = 10; nRow < planilhaExcel.getRows() - 1; nRow++) {
                     lbl = new Label(26, nRow, "", formatCellBase3);
                     planilhaExcel.addCell(lbl);
-                    addCell2(planilhaExcel, Pattern.PATTERN13, Border.LEFT, BorderLineStyle.MEDIUM, 26, nRow, "");
+                    addCell2(planilhaExcel, Pattern.PATTERN13, Border.LEFT, BorderLineStyle.MEDIUM, colunas + 2, nRow, "");
                 }
 
 //                CellView cell = new CellView();
